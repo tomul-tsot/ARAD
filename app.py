@@ -18,7 +18,7 @@ st.set_page_config(
 
 # ---------- HEADER ----------
 st.markdown("""
-<h1 style='color:#FF2E88;'>Algo Trading Dashboard</h1>
+<h1 style='color:#FF2E88;'>Algorithmic Trading Strategy Simulator</h1>
 <p>TradingView-inspired strategy simulator using Moving Average crossover with <b>Risk Management</b>.</p>
 """, unsafe_allow_html=True)
 
