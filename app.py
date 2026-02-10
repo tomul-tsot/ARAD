@@ -142,11 +142,15 @@ if run_button:
         buy_signals = data[data['Position'] == 1.0]
         sell_signals = data[data['Position'] == -1.0]
 
+        # Check if there are no signals
+        if buy_signals.empty and sell_signals.empty:
+            st.warning("No buy/sell signals in this period. Try adjusting SMA windows or date range.")
+
         fig.add_scatter(
             x=buy_signals.index,
             y=buy_signals['Close'],
             mode='markers',
-            marker=dict(symbol='triangle-up', size=12, color='green'),
+            marker=dict(symbol='triangle-up', size=15, color='#00FF00'),
             name='Buy Signal'
         )
 
@@ -154,7 +158,7 @@ if run_button:
             x=sell_signals.index,
             y=sell_signals['Close'],
             mode='markers',
-            marker=dict(symbol='triangle-down', size=12, color='red'),
+            marker=dict(symbol='triangle-down', size=15, color='#FF0000'),
             name='Sell Signal'
         )
 

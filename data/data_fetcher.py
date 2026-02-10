@@ -18,6 +18,8 @@ def fetch_data(ticker, start_date, end_date):
         if data.empty:
             return pd.DataFrame()
         # Ensure we have a proper index and columns
+        if isinstance(data.columns, pd.MultiIndex):
+            data.columns = data.columns.get_level_values(0)
         return data
     except Exception as e:
         print(f"Error fetching data for {ticker}: {e}")
