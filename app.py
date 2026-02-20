@@ -9,21 +9,47 @@ from strategies.moving_average import apply_moving_average_strategy
 from backtesting.engine import run_backtest
 from risk.risk_manager import apply_risk_caps
 
+# Logo Configuration
+LOGO_PATH = "assets/arad_logo.png"
+
 # Page Configuration
-st.set_page_config(
-    page_title="A_RAD | Algorithmic Trading Simulator",
-    layout="wide",
-    page_icon="📈"
-)
+try:
+    st.set_page_config(
+        page_title="A_RAD | Algorithmic Trading Strategy Simulator",
+        layout="wide",
+        page_icon=LOGO_PATH
+    )
+except Exception:
+    st.set_page_config(
+        page_title="A_RAD | Algorithmic Trading Strategy Simulator",
+        layout="wide",
+        page_icon="📈"
+    )
 
 # ---------- HEADER ----------
-st.markdown("""
-<h1 style='color:#FF2E88;'>Algorithmic Trading Strategy Simulator</h1>
-<p>TradingView-inspired strategy simulator using Moving Average crossover with <b>Risk Management</b>.</p>
-""", unsafe_allow_html=True)
+# Centered layout using columns: [Spacer, Logo, Title, Spacer]
+# ratios adjusted to visually center the block
+c1, c2, c3 = st.columns([1, 6, 1])
+
+with c2:
+    col_logo, col_text = st.columns([1, 4])
+    with col_logo:
+        try:
+            st.image(LOGO_PATH, width=120)
+        except Exception:
+            pass
+    with col_text:
+        st.markdown("""
+        <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <h1 style='color:#FF2E88; margin: 0; padding: 0;'>Algorithmic Trading Strategy Simulator</h1>
+            <p style='margin: 5px 0 0 0;'>Trading strategy simulator using Moving Average crossover with <b>Risk Management</b>.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
 
 # ---------- SIDEBAR ----------
 st.sidebar.header("Strategy Settings")
+
 
 ticker = st.sidebar.text_input("Stock Ticker", "AAPL")
 
