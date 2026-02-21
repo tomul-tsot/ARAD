@@ -1,6 +1,6 @@
 # A_RAD: Precision Algorithmic Trading
 
-![Dashboard Preview](Screenshot 2026-02-21 004628.png)
+![Dashboard Preview](screenshot.png)
 
 ## Vision
 A_RAD is an algorithmic trading platform designed for serious quantitative traders. Unlike mass-market brokers like Zerodha, which focus on access, A_RAD focuses on **edge**—providing institutional-grade backtesting, automated risk management, and strategy execution capabilities.
